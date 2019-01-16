@@ -1,0 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
+#random-id-generator {
+    width: 300px;
+}
