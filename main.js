@@ -29,7 +29,7 @@ function getMuseumID() {
         }
         throw new Error(response.statusText);
     })
-    .then(responseJson => console.log(responseJson))
+    .then(responseJson => displayRandomImage(responseJson))
     .catch(err => {
         $('#error-message').text('woops something went wrong');
     });   
@@ -41,13 +41,12 @@ function getMuseumID() {
 
 function displayRandomImage(responseJson) {
     $('#met-data').empty();
-    for (let x = 0; x < responseJson.length; x++) {
-        $('#met-data').append(
-            `<li>
-            <h3>${responseJson[x].title}</h3>
-            <img src='${responseJson[x].primaryImage}' alt='no image availible'>
-            </li>`
-            )};
+    $('#met-data').append(
+        `<li>
+        <h3>${responseJson.title}</h3>
+        <img src='${responseJson.primaryImage}' alt='no image availible'>
+        </li>`
+        );
 }
 
 function watchForm() {
