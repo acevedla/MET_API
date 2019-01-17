@@ -11,7 +11,16 @@
     <main class='container'>
     <h1>Explore 400,000+ images from the Mets open access program</h1>
     <section>
-        <form>
+        <form id='search-by-id'>
+            <label for='search-input'>
+                <p>If you know your item reference number please enter below</p>
+                <input type='text' class='search-input' name='search-input' placeholder='reference number'>
+                <button type='submit' id='search-button'>SUBMIT</button>
+            </label>
+        </form>
+    </section>
+    <section>
+        <form id='random-id'>
         <button id='random-id-generator'>CLICK ME</button>
         </form>
         <div id='error-message'></div>
