@@ -2,6 +2,10 @@
 
 ///objectID
 
+function getRandomMuseumId(array) {
+    return array[Math.floor(Math.random() * array.length)];
+}
+
 function getMuseumID() {
     const museumIDUrl= 'https://collectionapi.metmuseum.org/public/collection/v1/objects';
     console.log(museumIDUrl);
@@ -12,10 +16,11 @@ function getMuseumID() {
         }
         throw new Error(response.statusText);
     })
-    .then(responseJson => console.log(responseJson))
+    .then(responseJson => console.log(getRandomMuseumId(responseJson.objectIDs)))
     .catch(err => {
         $('#error-message').text('woops something went wrong');
     });
+    
 }
 
 function watchForm() {
