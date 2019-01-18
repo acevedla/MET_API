@@ -80,13 +80,13 @@ function getMuseumID() {
 
 function displayRandomImage(responseJson) {
     $('#met-data').empty();
-    if (responseJson.artistDisplayName === "") {
+    if (responseJson.primaryImageSmall === "" && responseJson.artistDisplayName === "") {
         $('#met-data').append(
             `<li>
             <h3>${responseJson.title}</h3>
             <p>Reference Number: ${responseJson.objectID}</p>
-            <p>Artist: UNKNOWN</p>
-            <img src='${responseJson.primaryImageSmall}' alt='no image availible'>
+            <p>UNKNOWN</p>
+            <img src='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg' alt='no image availible'>
             </li>`
             );
             $('#wiki').removeClass('hidden');
@@ -102,14 +102,13 @@ function displayRandomImage(responseJson) {
             );
             $('#wiki').removeClass('hidden');
     }
-    //this does not work...not sure why
-    else if (responseJson.primaryImageSmall === "" && responseJson.artistDisplayName === "") {
+    else if (responseJson.artistDisplayName === "") {
         $('#met-data').append(
             `<li>
             <h3>${responseJson.title}</h3>
             <p>Reference Number: ${responseJson.objectID}</p>
-            <p>Artist: UNKNOWN</p>
-            <img src='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg' alt='no image availible'>
+            <p>UNKNOWN</p>
+            <img src='${responseJson.primaryImageSmall}' alt='no image availible'>
             </li>`
             );
             $('#wiki').removeClass('hidden');
