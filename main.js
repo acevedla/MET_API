@@ -15,7 +15,7 @@ function getMuseumItemById(query) {
     })
     .then(responseJson => displayRandomImage(responseJson))
     .catch(err => {
-        $('#error-message').text('woops something went wrong');
+        $('#error-message').text('woops could not find that ID');
     });  
 }
 
@@ -70,11 +70,11 @@ function getMuseumID() {
     })
     .then(responseJson => displayRandomImage(responseJson))
     .catch(err => {
-        $('#error-message').text('woops something went wrong');
+        $('#error-message').text('no random image to display');
     });   
 })
     .catch(err => {
-        $('#error-message').text('woops something went wrong');
+        $('#error-message').text('no random image to display');
     });   
 }
 
@@ -89,16 +89,18 @@ function displayRandomImage(responseJson) {
             <img src='${responseJson.primaryImageSmall}' alt='no image availible'>
             </li>`
             );
+            $('#wiki').removeClass('hidden');
     }
     else if (responseJson.primaryImageSmall === ""){
         $('#met-data').append(
             `<li>
             <h3>${responseJson.title}</h3>
             <p>Reference Number: ${responseJson.objectID}</p>
-            <p>Artist: ${responseJson.artistDisplayName}</p>
+            <p class='artist-name'>${responseJson.artistDisplayName}</p>
             <img src='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg' alt='no image availible'>
             </li>`
             );
+            $('#wiki').removeClass('hidden');
     }
     //this does not work...not sure why
     else if (responseJson.primaryImageSmall === "" && responseJson.artistDisplayName === "") {
@@ -110,16 +112,18 @@ function displayRandomImage(responseJson) {
             <img src='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg' alt='no image availible'>
             </li>`
             );
+            $('#wiki').removeClass('hidden');
     }
     else {
     $('#met-data').append(
         `<li>
         <h3>${responseJson.title}</h3>
         <p>Reference Number: ${responseJson.objectID}</p>
-        <p>Artist: ${responseJson.artistDisplayName}</p>
+        <p class='artist-name'>${responseJson.artistDisplayName}</p>
         <img src='${responseJson.primaryImageSmall}' alt='no image availible'>
         </li>`
         );
+        $('#wiki').removeClass('hidden');
     }
 }
 
@@ -130,9 +134,42 @@ function watchForm2() {
     });
 }
 
+function getWikiLink(query) {
+    const searchUrl = 'https://en.wikipedia.org/api/rest_v1/page/summary' ///queryterm
+    const finalSearchUrl = searchUrl + '/' + query;
+
+    fetch(finalSearchUrl)
+    .then(response => {
+        if (response.ok) {
+            response.json();
+        }
+        throw new Error(response.statusText);
+    })
+    .then(responseJson => displayWikiLink(responseJson))
+    .catch(err => {
+        $('#error-message').text('no search results availible');
+    }); 
+}
+
+function displayWikiLink(responseJson) {
+    $('#wiki-data').empty();
+    for(let x = 0; x < responseJson.desktop.length; x++) {
+        $('#wiki-data').append(
+            `<p>${responseJson.desktop[x].page}</p>`
+        )};
+}
+
+function watchForm3() {
+    $('#wiki').on('click', '#wiki-button', function(event) {
+        event.preventDefault();
+        getWikiLink($('.artist-name').html()); //this is formated incorrectly 
+    });
+}
+
 function init() {
     watchForm1();
     watchForm2();
+    watchForm3();
 }
 
 $(init);

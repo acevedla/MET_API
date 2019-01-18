@@ -5,3 +5,11 @@
 #random-id-generator {
     width: 300px;
 }
+
+#wiki-button {
+    width: 300px;
+}
+
+.hidden {
+    display: none;
+}
