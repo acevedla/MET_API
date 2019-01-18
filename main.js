@@ -6,6 +6,8 @@ function getMuseumItemById(query) {
     const museumIDUrl= 'https://collectionapi.metmuseum.org/public/collection/v1/objects';
     const finalMuseumUrl= museumIDUrl + '/' + query;
 
+    console.log(finalMuseumUrl);
+
     fetch(finalMuseumUrl)
     .then(response => {
         if (response.ok) {
@@ -39,6 +41,7 @@ function watchForm1() {
             alert('Sorry that reference number is not valid')
         }
     });
+    
 }
 
 function getRandomMuseumId(array) {
@@ -146,7 +149,7 @@ function getWikiLink(query) {
     })
     .then(responseJson => displayWikiLink(responseJson))
     .catch(err => {
-        $('#error-message').text('no search results availible');
+        $('#error-message2').text('no search results availible');
     }); 
 }
 
@@ -160,9 +163,9 @@ function displayWikiLink(responseJson) {
 
 function watchForm3() {
     $('#wiki').on('click', '#wiki-button', function(event) {
+        $('#error-message2').empty();
         event.preventDefault();
-        getWikiLink($('.artist-name').html()); //this is formated incorrectly 
-    });
+        getWikiLink($('.artist-name').html().toLowerCase().split(' ').join('_'));
 }
 
 function init() {
