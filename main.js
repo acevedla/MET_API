@@ -86,8 +86,8 @@ function displayMuseumPiece(responseJson) {
             `<li>
             <h3 class='title'>${responseJson.title}</h3>
             <p>Reference Number: ${responseJson.objectID}</p>
-            <p>Artist: UNKNOWN</p>
-            <p>City: UNKNOWN</p>
+            <p class='artist-name'>Artist: Unknown</p>
+            <p>City: Unknown</p>
             <img src='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg' alt='no image availible'>
             </li>`
             );
@@ -99,8 +99,8 @@ function displayMuseumPiece(responseJson) {
             `<li>
             <h3 class='title'>${responseJson.title}</h3>
             <p>Reference Number: ${responseJson.objectID}</p>
-            <p>Artist: UNKNOWN</p>
-            <p>City: UNKNOWN</p>
+            <p class='artist-name'>Artist: Unknown</p>
+            <p>City: Unknown</p>
             <img src='${responseJson.primaryImageSmall}' alt='no image availible'>
             </li>`
             );
@@ -112,7 +112,7 @@ function displayMuseumPiece(responseJson) {
             `<li>
             <h3 class='title'>${responseJson.title}</h3>
             <p>Reference Number: ${responseJson.objectID}</p>
-            <p>Artist: UNKNOWN</p>
+            <p class='artist-name'>Artist: Unknown</p>
             <p>City: ${responseJson.city}</p>
             <img src='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg' alt='no image availible'>
             <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=${responseJson.city}&key=AIzaSyA9Wjfj0GNoiiZ2t1ZO93msjwhAgkddj54" allowfullscreen></iframe>
@@ -126,8 +126,8 @@ function displayMuseumPiece(responseJson) {
             `<li>
             <h3 class='title'>${responseJson.title}</h3>
             <p>Reference Number: ${responseJson.objectID}</p>
-            <p class='artist-name'><span>Artist: </span>${responseJson.artistDisplayName}</p>
-            <p>City: UNKNOWN</p>
+            <p class='artist-name'>Artist: ${responseJson.artistDisplayName}</p>
+            <p>City: Unknown</p>
             <img src='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg' alt='no image availible'>
             </li>`
             );
@@ -139,7 +139,7 @@ function displayMuseumPiece(responseJson) {
             `<li>
             <h3 class='title'>${responseJson.title}</h3>
             <p>Reference Number: ${responseJson.objectID}</p>
-            <p>Artist: UNKNOWN</p>
+            <p class='artist-name'>Artist: Unknown</p>
             <p>City: ${responseJson.city}</p>
             <img src='${responseJson.primaryImageSmall}' alt='no image availible'>
             <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=${responseJson.city}&key=AIzaSyA9Wjfj0GNoiiZ2t1ZO93msjwhAgkddj54" allowfullscreen></iframe>
@@ -153,7 +153,7 @@ function displayMuseumPiece(responseJson) {
             `<li>
             <h3 class='title'>${responseJson.title}</h3>
             <p>Reference Number: ${responseJson.objectID}</p>
-            <p class='artist-name'><span>Artist: </span>${responseJson.artistDisplayName}</p>
+            <p class='artist-name'>Artist: ${responseJson.artistDisplayName}</p>
             <p>City: ${responseJson.city}</p>
             <img src='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg' alt='no image availible'>
             <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=${responseJson.city}&key=AIzaSyA9Wjfj0GNoiiZ2t1ZO93msjwhAgkddj54" allowfullscreen></iframe>
@@ -167,8 +167,8 @@ function displayMuseumPiece(responseJson) {
             `<li>
             <h3 class='title'>${responseJson.title}</h3>
             <p>Reference Number: ${responseJson.objectID}</p>
-            <p class='artist-name'><span>Artist: </span>${responseJson.artistDisplayName}</p>
-            <p>City: UNKNOWN</p>
+            <p class='artist-name'>Artist: ${responseJson.artistDisplayName}</p>
+            <p>City: Unknown</p>
             <img src='${responseJson.primaryImageSmall}' alt='no image availible'>
             </li>`
             );
@@ -180,7 +180,7 @@ function displayMuseumPiece(responseJson) {
             `<li>
             <h3 class='title'>${responseJson.title}</h3>
             <p>Reference Number: ${responseJson.objectID}</p>
-            <p class='artist-name'><span>Artist: </span>${responseJson.artistDisplayName}</p>
+            <p class='artist-name'>Artist: ${responseJson.artistDisplayName}</p>
             <p>City: ${responseJson.city}</p>
             <img src='${responseJson.primaryImageSmall}' alt='no image availible'>
             <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=${responseJson.city}&key=AIzaSyA9Wjfj0GNoiiZ2t1ZO93msjwhAgkddj54" allowfullscreen></iframe>
@@ -236,12 +236,25 @@ function displayWiki(responseJson) {
 
     console.log(wikiUrl);
 
-    if (wikiUrl === []) {
+    if (wikiUrl.length === 0) {
         $('#wiki-data').append(
             `<p>Sorry no results availible</p>`
         ); 
     }
-    else {
+    else if (wikiUrl.length === 1) {
+        $('#wiki-data').append(
+            `<a href='${wikiUrl[0]}'>View in Wikipedia</a>`
+        );
+    }
+    else if (wikiUrl.length === 2) {
+        $('#wiki-data').append(
+            `<a href='${wikiUrl[0]}'>View in Wikipedia</a>`
+        );
+        $('#wiki-data').append(
+            `<a href='${wikiUrl[1]}'>View in Wikipedia</a>`
+        );
+    }
+    else if (wikiUrl.length === 3) {
         $('#wiki-data').append(
             `<a href='${wikiUrl[0]}'>View in Wikipedia</a>`
         );
@@ -249,7 +262,7 @@ function displayWiki(responseJson) {
             `<a href='${wikiUrl[1]}'>View in Wikipedia</a>`
         );
         $('#wiki-data').append(
-        `<a href='${wikiUrl[2]}'>View in Wikipedia</a>`
+            `<a href='${wikiUrl[2]}'>View in Wikipedia</a>`
         );
     }
 }
@@ -258,7 +271,18 @@ function watchForm3() {
     $('#wiki').on('click', '#wiki-button', function(event) {
         $('#error-message2').empty();
         event.preventDefault();
-        getWiki($('.artist-name').html().toLowerCase().split(' ').join('_'));
+        let wikiValue = $('.artist-name').text();
+        let formatWikiValue = wikiValue.substring(8).toLowerCase().split(' ').join('_');
+
+        console.log(wikiValue);
+        console.log(formatWikiValue);
+        
+        if (formatWikiValue == 'unknown') {
+            alert('Sorry no results availible');
+        }
+        else {
+            getWiki($('.artist-name').text().substring(8).toLowerCase().split(' ').join('_'));
+        }
     });
 }
 
