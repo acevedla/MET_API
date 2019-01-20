@@ -115,7 +115,7 @@ function displayMuseumPiece(responseJson) {
             <p class='artist-name'>Artist: Unknown</p>
             <p>City: ${responseJson.city}</p>
             <img src='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg' alt='no image availible'>
-            <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=${responseJson.city}&key=AIzaSyA9Wjfj0GNoiiZ2t1ZO93msjwhAgkddj54" allowfullscreen></iframe>
+            <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=${responseJson.city}&key=AIzaSyAM_l133bxxG5xGx8kXsI8PMYanQQJY3bA" allowfullscreen></iframe>
             </li>`
             );
             $('#wiki').removeClass('hidden');
@@ -142,7 +142,7 @@ function displayMuseumPiece(responseJson) {
             <p class='artist-name'>Artist: Unknown</p>
             <p>City: ${responseJson.city}</p>
             <img src='${responseJson.primaryImageSmall}' alt='no image availible'>
-            <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=${responseJson.city}&key=AIzaSyA9Wjfj0GNoiiZ2t1ZO93msjwhAgkddj54" allowfullscreen></iframe>
+            <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=${responseJson.city}&key=AIzaSyAM_l133bxxG5xGx8kXsI8PMYanQQJY3bA" allowfullscreen></iframe>
             </li>`
             );
             $('#wiki').removeClass('hidden');
@@ -156,7 +156,7 @@ function displayMuseumPiece(responseJson) {
             <p class='artist-name'>Artist: ${responseJson.artistDisplayName}</p>
             <p>City: ${responseJson.city}</p>
             <img src='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg' alt='no image availible'>
-            <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=${responseJson.city}&key=AIzaSyA9Wjfj0GNoiiZ2t1ZO93msjwhAgkddj54" allowfullscreen></iframe>
+            <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=${responseJson.city}&key=AIzaSyAM_l133bxxG5xGx8kXsI8PMYanQQJY3bA" allowfullscreen></iframe>
             </li>`
             );
             $('#wiki').removeClass('hidden');
@@ -183,7 +183,7 @@ function displayMuseumPiece(responseJson) {
             <p class='artist-name'>Artist: ${responseJson.artistDisplayName}</p>
             <p>City: ${responseJson.city}</p>
             <img src='${responseJson.primaryImageSmall}' alt='no image availible'>
-            <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=${responseJson.city}&key=AIzaSyA9Wjfj0GNoiiZ2t1ZO93msjwhAgkddj54" allowfullscreen></iframe>
+            <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=${responseJson.city}&key=AIzaSyAM_l133bxxG5xGx8kXsI8PMYanQQJY3bA" allowfullscreen></iframe>
             </li>`
             );
             $('#wiki').removeClass('hidden');
