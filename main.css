@@ -1,13 +1,152 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+}
+
+h1, .button, .search-input::placeholder, .button-explainer {
+    text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+}
+
+h1 {
+  padding: 50px;
+  font-size: 35px;
+  color: #ffffff;
+  margin: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.container {
+  text-align: center;
+}
+
+.container2 {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 10%;
+    display: block;
+    position: relative;
+    color: #ffffff;
+  }
+  
+  .container2::after {
+    content: "";
+    background: url('../MET_API/images/LC-36_25_2620-001.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    opacity: 1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
+  }
+
+.search-input {
+    border-bottom: 2px #ffffff solid;
+    border-top: none;
+    border-left: none;
+    width: 300px; 
+    background: transparent;
+    color: #ffffff;
+    box-shadow: 1px 1px black;
+    font-size: 25px;
+}
+
+.search-input::placeholder {
+    color: white;
+    opacity: 1;
+}
+
+.search-input:focus::placeholder {
+    color: #ffffff;
+    text-shadow: none;
+}
+
+.search-input:focus {
+    background-color: #ffffff;
+    color: black;
+    text-shadow: none;
+}
+
+.button {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    box-shadow: 1px 1px black;
+}
+
+.button:hover {
+    background-color: #ffffff;
+    color: black;
+    text-shadow: none;
+}
+
+#search-button {
+    padding: 5px;
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+.button-explainer {
+    color: #ffffff;
+    font-size: 20px;
+    margin-top: 35px;
+    margin-bottom: 25px;
 }
 
 #random-id-generator {
-    width: 300px;
+    padding: 10px;
+    width: 250px;
+    font-size: 20px;
+}
+
+#wiki {
+    padding: 7%;
+    width: 100%;
+    height: 100%;
+}
+
+#met-data {
+    width: 100%;
+    list-style-type: none;
+}
+
+h3 {
+    padding: 5px;
+    color: #000;
+    padding: 10px;
+}
+
+#met-data li {
+    padding: 2px; 
+    color: #000;
+    margin-bottom: 1%;
 }
 
 #wiki-button {
-    width: 300px;
+    margin-left: 3%;
+    padding: 15px;
+    font-size: 20px;
+    margin-bottom: 1%;
+    border: 2px solid black;
+    text-shadow: none;
+    color: #000;
+}
+
+img, iframe {
+    width: 100%;
+    height: 100%;
+    border: 3px solid black;
+    margin-bottom: 5%;
+    margin-right: 1%;
 }
 
 .hidden {

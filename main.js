@@ -83,110 +83,109 @@ function displayMuseumPiece(responseJson) {
     $('#met-data').empty();
     if (responseJson.artistDisplayName === "" && responseJson.city === "" && responseJson.primaryImageSmall === "") {
         $('#met-data').append(
-            `<li>
-            <h3 class='title'>${responseJson.title}</h3>
-            <p>Reference Number: ${responseJson.objectID}</p>
-            <p class='artist-name'>Artist: Unknown</p>
-            <p>City: Unknown</p>
+            `<h3 class='title'>${responseJson.title}</h3>
+            <li><p>Reference Number: ${responseJson.objectID}</p></li>
+            <li><p class='artist-name'>Artist: Unknown</p></li>
+            <li><p>City: Unknown</p></li>
             <img src='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg' alt='no image availible'>
-            </li>`
+            `
             );
             $('#wiki').removeClass('hidden');
             $('#wiki-data').empty();
     }
     else if (responseJson.artistDisplayName === "" && responseJson.city === "") {
         $('#met-data').append(
-            `<li>
-            <h3 class='title'>${responseJson.title}</h3>
-            <p>Reference Number: ${responseJson.objectID}</p>
-            <p class='artist-name'>Artist: Unknown</p>
-            <p>City: Unknown</p>
+            `<h3 class='title'>${responseJson.title}</h3>
+            <li><p>Reference Number: ${responseJson.objectID}</p></li>
+            <li><p class='artist-name'>Artist: Unknown</p></li>
+            <li><p>City: Unknown</p></li>
             <img src='${responseJson.primaryImageSmall}' alt='no image availible'>
-            </li>`
+            `
             );
             $('#wiki').removeClass('hidden');
+            $('#met').removeClass('hidden');
             $('#wiki-data').empty();
     }
     else if (responseJson.artistDisplayName === "" && responseJson.primaryImageSmall === "") {
         $('#met-data').append(
-            `<li>
-            <h3 class='title'>${responseJson.title}</h3>
-            <p>Reference Number: ${responseJson.objectID}</p>
-            <p class='artist-name'>Artist: Unknown</p>
-            <p>City: ${responseJson.city}</p>
+            `<h3 class='title'>${responseJson.title}</h3>
+            <li><p>Reference Number: ${responseJson.objectID}</p></li>
+            <li><p class='artist-name'>Artist: Unknown</p></li>
+            <li><p>City: ${responseJson.city}</p></li>
             <img src='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg' alt='no image availible'>
-            <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=${responseJson.city}&key=AIzaSyAM_l133bxxG5xGx8kXsI8PMYanQQJY3bA" allowfullscreen></iframe>
-            </li>`
+            <iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=${responseJson.city}&key=AIzaSyAM_l133bxxG5xGx8kXsI8PMYanQQJY3bA" allowfullscreen></iframe>
+            `
             );
             $('#wiki').removeClass('hidden');
+            $('#met').removeClass('hidden');
             $('#wiki-data').empty();
     }
     else if (responseJson.city === "" && responseJson.primaryImageSmall === "") {
         $('#met-data').append(
-            `<li>
-            <h3 class='title'>${responseJson.title}</h3>
-            <p>Reference Number: ${responseJson.objectID}</p>
-            <p class='artist-name'>Artist: ${responseJson.artistDisplayName}</p>
-            <p>City: Unknown</p>
+            `<h3 class='title'>${responseJson.title}</h3>
+            <li><p>Reference Number: ${responseJson.objectID}</p></li>
+            <li><p class='artist-name'>Artist: ${responseJson.artistDisplayName}</p></li>
+            <li><p>City: Unknown</p></li>
             <img src='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg' alt='no image availible'>
-            </li>`
+            `
             );
             $('#wiki').removeClass('hidden');
+            $('#met').removeClass('hidden');
             $('#wiki-data').empty();
     }
     else if (responseJson.artistDisplayName === ""){
         $('#met-data').append(
-            `<li>
-            <h3 class='title'>${responseJson.title}</h3>
-            <p>Reference Number: ${responseJson.objectID}</p>
-            <p class='artist-name'>Artist: Unknown</p>
-            <p>City: ${responseJson.city}</p>
+            `<h3 class='title'>${responseJson.title}</h3>
+            <li><p>Reference Number: ${responseJson.objectID}</p></li>
+            <li><p class='artist-name'>Artist: Unknown</p></li>
+            <li><p>City: ${responseJson.city}</p></li>
             <img src='${responseJson.primaryImageSmall}' alt='no image availible'>
-            <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=${responseJson.city}&key=AIzaSyAM_l133bxxG5xGx8kXsI8PMYanQQJY3bA" allowfullscreen></iframe>
-            </li>`
+            <iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=${responseJson.city}&key=AIzaSyAM_l133bxxG5xGx8kXsI8PMYanQQJY3bA" allowfullscreen></iframe>
+            `
             );
             $('#wiki').removeClass('hidden');
+            $('#met').removeClass('hidden');
             $('#wiki-data').empty();
     }
     else if (responseJson.primaryImageSmall === "") {
         $('#met-data').append(
-            `<li>
-            <h3 class='title'>${responseJson.title}</h3>
-            <p>Reference Number: ${responseJson.objectID}</p>
-            <p class='artist-name'>Artist: ${responseJson.artistDisplayName}</p>
-            <p>City: ${responseJson.city}</p>
+            `<h3 class='title'>${responseJson.title}</h3>
+            <li><p>Reference Number: ${responseJson.objectID}</p></li>
+            <li><p class='artist-name'>Artist: ${responseJson.artistDisplayName}</p></li>
+            <li><p>City: ${responseJson.city}</p></li>
             <img src='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg' alt='no image availible'>
-            <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=${responseJson.city}&key=AIzaSyAM_l133bxxG5xGx8kXsI8PMYanQQJY3bA" allowfullscreen></iframe>
-            </li>`
+            <iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=${responseJson.city}&key=AIzaSyAM_l133bxxG5xGx8kXsI8PMYanQQJY3bA" allowfullscreen></iframe>
+            `
             );
             $('#wiki').removeClass('hidden');
+            $('#met').removeClass('hidden');
             $('#wiki-data').empty();
     }
     else if (responseJson.city === "") {
         $('#met-data').append(
-            `<li>
-            <h3 class='title'>${responseJson.title}</h3>
-            <p>Reference Number: ${responseJson.objectID}</p>
-            <p class='artist-name'>Artist: ${responseJson.artistDisplayName}</p>
-            <p>City: Unknown</p>
+            `<h3 class='title'>${responseJson.title}</h3>
+            <li><p>Reference Number: ${responseJson.objectID}</p></li>
+            <li><p class='artist-name'>Artist: ${responseJson.artistDisplayName}</p></li>
+            <li><p>City: Unknown</p></li>
             <img src='${responseJson.primaryImageSmall}' alt='no image availible'>
-            </li>`
+            `
             );
             $('#wiki').removeClass('hidden');
+            $('#met').removeClass('hidden');
             $('#wiki-data').empty();
     }
     else {
         $('#met-data').append(
-            `<li>
-            <h3 class='title'>${responseJson.title}</h3>
-            <p>Reference Number: ${responseJson.objectID}</p>
-            <p class='artist-name'>Artist: ${responseJson.artistDisplayName}</p>
-            <p>City: ${responseJson.city}</p>
+            `<h3 class='title'>${responseJson.title}</h3>
+            <li><p>Reference Number: ${responseJson.objectID}</p></li>
+            <li><p class='artist-name'>Artist: ${responseJson.artistDisplayName}</p></li>
+            <li><p>City: ${responseJson.city}</p></li>
             <img src='${responseJson.primaryImageSmall}' alt='no image availible'>
-            <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=${responseJson.city}&key=AIzaSyAM_l133bxxG5xGx8kXsI8PMYanQQJY3bA" allowfullscreen></iframe>
-            </li>`
+            <iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=${responseJson.city}&key=AIzaSyAM_l133bxxG5xGx8kXsI8PMYanQQJY3bA" allowfullscreen></iframe>
+            `
             );
             $('#wiki').removeClass('hidden');
+            $('#met').removeClass('hidden');
             $('#wiki-data').empty();
     }
 }

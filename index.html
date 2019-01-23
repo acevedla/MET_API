@@ -1,39 +1,37 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MET API</title>
-    <link rel="stylesheet" href="main.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-</head>
-<body>
-    <main class='container'>
-    <h1>Explore 400,000+ images from the Mets open access program</h1>
-    <section>
-        <form id='search-by-id'>
-            <label for='search-input'>
-                <p>If you know your item reference number please enter below</p>
-                <input type='text' class='search-input' name='search-input' placeholder='reference number'>
-                <button type='submit' id='search-button'>SUBMIT</button>
-            </label>
-        </form>
-    </section>
-    <section>
-        <form id='random-id'>
-        <button id='random-id-generator'>CLICK ME</button>
-        </form>
-        <p id='error-message'></p>
-        <ul id='met-data'>
-        </ul>
-    </section>
-    <section id='wiki' class='hidden'>
-        <button type='button' id='wiki-button'>SEARCH WIKIPEDIA</button>
-        <p id='error-message2'></p>
-        <ul id='wiki-data'>
-        </ul>
-    </section>
-</main>
-<script src='main.js'></script>
-</body>
-</html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>MET API</title>
+        <link rel="stylesheet" href="main.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <main class='container'>
+        <section class='container2'>
+                <h1>Explore 800,000+ pieces of the Metropolitan Museum Collection</h1>
+            <form id='search-by-id'>
+                <label for='search-input'>
+                    <input type='text' class='search-input' name='search-input' placeholder='reference #'>
+                    <button type='submit' id='search-button' class='button'>SUBMIT</button>
+                </label>
+            </form>
+            <form id='random-id'>
+            <p class='button-explainer'>Don't know your reference number? Click below</P>
+            <button id='random-id-generator' class='button'>RANDOMIZER</button>
+            </form>
+        </section>
+        <div id='wiki' class='hidden'>
+                <button id='wiki-button' class='button'>More information on Wikipedia!</button>
+                <p id='error-message2'></p>
+                <ul id='wiki-data'>
+                </ul>
+                <p id='error-message'></p>
+            <ul id='met-data'>
+            </ul>
+            </div>
+    </main>
+    <script src='main.js'></script>
+    </body>
+    </html>
