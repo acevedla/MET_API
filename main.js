@@ -286,7 +286,7 @@ function watchForm3() {
             $('#wiki-error').append('Sorry no results available');
         }
         else {
-            getWiki($('.artist-name').text().substring(8).toLowerCase().replace(/[_\W]+/g, '_'));
+            getWiki($('.artist-name').text().substring(8).toLowerCase().split(' ').join('_'));
         }
     });
 }
