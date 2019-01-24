@@ -118,6 +118,7 @@ h1 {
     width: 100%;
     list-style-type: none;
     font-size: 25px;
+    padding: 0;
 }
 
 h3 {
@@ -133,17 +134,12 @@ h3 {
 }
 
 #wiki-button {
-    margin-left: 3%;
     padding: 15px;
     font-size: 20px;
     margin-bottom: 1%;
     border: 2px solid black;
     text-shadow: none;
     color: #000;
-}
-
-#wiki-error {
-    margin-left: 3%;
 }
 
 img, iframe {
