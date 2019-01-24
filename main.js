@@ -201,7 +201,7 @@ function displayMuseumPiece(responseJson) {
     }
     $('.loading').addClass('hidden');
     $('html, body').animate({
-        scrollTop: 630
+        scrollTop: $('.container2').prop("scrollHeight")
     }, 1000);
 }
 
