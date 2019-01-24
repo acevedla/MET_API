@@ -13,4 +13,4 @@ Lastly, a Google map will display when there is data on the city where the piece
 
 ![](images/Screenshot1.PNG)
 
-![](images/Screenshot%202.PNG)
+![](images/Screenshot2.PNG)
