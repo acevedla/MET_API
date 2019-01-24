@@ -1,5 +1,5 @@
 'use strict'; 
-
+//
 function getMuseumItemById(query) {
     const museumIDUrl= 'https://collectionapi.metmuseum.org/public/collection/v1/objects';
     const finalMuseumUrl= museumIDUrl + '/' + query;
