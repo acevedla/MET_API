@@ -11,6 +11,6 @@ The information provided by The MET is not consistent and this app provides furt
 In addition, using information provided by The Met, the user can learn more about the artist from the Wikipedia API (when availible). 
 Lastly, a Google map will display when there is data on the city where the piece orginated.
 
-![](images/Screenshot1.png)
+![](images/Screenshot1.PNG)
 
-![](images/Screenshot2.png)
+![](images/Screenshot%202.PNG)
