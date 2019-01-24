@@ -31,12 +31,13 @@ function checkValidForm(val) {
 function watchForm1() {
     $('#search-by-id').submit(function(event) {
         event.preventDefault();
+        $('#submit-error').empty();
         const userInput = $('.search-input').val();
         if (checkValidForm(userInput)) {
             getMuseumItemById(userInput);
         }
         else {
-            alert('Sorry that reference number is not valid')
+            $('#submit-error').append('Sorry that reference number is not valid');
         }
     });
     
@@ -92,6 +93,7 @@ function displayMuseumPiece(responseJson) {
             );
             $('#wiki').removeClass('hidden');
             $('#wiki-data').empty();
+            $('#wiki-error').empty();
     }
     else if (responseJson.artistDisplayName === "" && responseJson.city === "") {
         $('#met-data').append(
@@ -105,6 +107,7 @@ function displayMuseumPiece(responseJson) {
             $('#wiki').removeClass('hidden');
             $('#met').removeClass('hidden');
             $('#wiki-data').empty();
+            $('#wiki-error').empty();
     }
     else if (responseJson.artistDisplayName === "" && responseJson.primaryImageSmall === "") {
         $('#met-data').append(
@@ -119,6 +122,7 @@ function displayMuseumPiece(responseJson) {
             $('#wiki').removeClass('hidden');
             $('#met').removeClass('hidden');
             $('#wiki-data').empty();
+            $('#wiki-error').empty();
     }
     else if (responseJson.city === "" && responseJson.primaryImageSmall === "") {
         $('#met-data').append(
@@ -132,6 +136,7 @@ function displayMuseumPiece(responseJson) {
             $('#wiki').removeClass('hidden');
             $('#met').removeClass('hidden');
             $('#wiki-data').empty();
+            $('#wiki-error').empty();
     }
     else if (responseJson.artistDisplayName === ""){
         $('#met-data').append(
@@ -146,6 +151,7 @@ function displayMuseumPiece(responseJson) {
             $('#wiki').removeClass('hidden');
             $('#met').removeClass('hidden');
             $('#wiki-data').empty();
+            $('#wiki-error').empty();
     }
     else if (responseJson.primaryImageSmall === "") {
         $('#met-data').append(
@@ -160,6 +166,7 @@ function displayMuseumPiece(responseJson) {
             $('#wiki').removeClass('hidden');
             $('#met').removeClass('hidden');
             $('#wiki-data').empty();
+            $('#wiki-error').empty();
     }
     else if (responseJson.city === "") {
         $('#met-data').append(
@@ -173,6 +180,7 @@ function displayMuseumPiece(responseJson) {
             $('#wiki').removeClass('hidden');
             $('#met').removeClass('hidden');
             $('#wiki-data').empty();
+            $('#wiki-error').empty();
     }
     else {
         $('#met-data').append(
@@ -187,6 +195,7 @@ function displayMuseumPiece(responseJson) {
             $('#wiki').removeClass('hidden');
             $('#met').removeClass('hidden');
             $('#wiki-data').empty();
+            $('#wiki-error').empty();
     }
 }
 
@@ -242,34 +251,31 @@ function displayWiki(responseJson) {
     }
     else if (wikiUrl.length === 1) {
         $('#wiki-data').append(
-            `<a href='${wikiUrl[0]}'>View in Wikipedia</a>`
+            `<p>Top result on Wikipedia</p>
+            <a href='${wikiUrl[0]}'>#1</a>`
         );
     }
     else if (wikiUrl.length === 2) {
         $('#wiki-data').append(
-            `<a href='${wikiUrl[0]}'>View in Wikipedia</a>`
-        );
-        $('#wiki-data').append(
-            `<a href='${wikiUrl[1]}'>View in Wikipedia</a>`
+            `<p>Top 2 results on Wikipedia</p>
+            <a href='${wikiUrl[0]}'>#1</a>
+            <a href='${wikiUrl[1]}'>#2</a>`
         );
     }
     else if (wikiUrl.length === 3) {
         $('#wiki-data').append(
-            `<a href='${wikiUrl[0]}'>View in Wikipedia</a>`
-        );
-        $('#wiki-data').append(
-            `<a href='${wikiUrl[1]}'>View in Wikipedia</a>`
-        );
-        $('#wiki-data').append(
-            `<a href='${wikiUrl[2]}'>View in Wikipedia</a>`
+            `<p>Top 3 results on Wikipedia</p>
+            <a href='${wikiUrl[0]}'>#1</a>
+            <a href='${wikiUrl[1]}'>#2</a>
+            <a href='${wikiUrl[2]}'>#3</a>`
         );
     }
 }
 
 function watchForm3() {
     $('#wiki').on('click', '#wiki-button', function(event) {
-        $('#error-message2').empty();
         event.preventDefault();
+        $('#wiki-error').empty();
         let wikiValue = $('.artist-name').text();
         let formatWikiValue = wikiValue.substring(8).toLowerCase().split(' ').join('_');
 
@@ -277,10 +283,10 @@ function watchForm3() {
         console.log(formatWikiValue);
         
         if (formatWikiValue == 'unknown') {
-            alert('Sorry no results availible');
+            $('#wiki-error').append('Sorry no results availible');
         }
         else {
-            getWiki($('.artist-name').text().substring(8).toLowerCase().split(' ').join('_'));
+            getWiki($('.artist-name').text().substring(8).toLowerCase().replace(/[_\W]+/g, '_'));
         }
     });
 }

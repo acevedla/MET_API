@@ -15,6 +15,7 @@
                 <label for='search-input'>
                     <input type='text' class='search-input' name='search-input' placeholder='reference #'>
                     <button type='submit' id='search-button' class='button'>SUBMIT</button>
+                    <p id='submit-error'></p>
                 </label>
             </form>
             <form id='random-id'>
@@ -23,14 +24,18 @@
             </form>
         </section>
         <div id='wiki' class='hidden'>
-                <button id='wiki-button' class='button'>More information on Wikipedia!</button>
-                <p id='error-message2'></p>
+                <button id='wiki-button' class='button'>More information about the artist</button>
+                <p id='wiki-error'></p>
                 <ul id='wiki-data'>
                 </ul>
                 <p id='error-message'></p>
             <ul id='met-data'>
             </ul>
             </div>
+            <footer><a href='https://www.mediawiki.org/wiki/API:Main_page'>Wikipedia API</a>
+                <a href='https://metmuseum.github.io/'>The MET API</a>
+                <a href='https://developers.google.com/maps/documentation/'>Google Maps API</a>
+            </footer>
     </main>
     <script src='main.js'></script>
     </body>

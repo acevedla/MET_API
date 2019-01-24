@@ -3,7 +3,7 @@
     margin: 0;
 }
 
-h1, .button, .search-input::placeholder, .button-explainer {
+h1, .button, .search-input::placeholder, .button-explainer, footer {
     text-shadow:
 		-1px -1px 0 #000,
 		1px -1px 0 #000,
@@ -117,6 +117,7 @@ h1 {
 #met-data {
     width: 100%;
     list-style-type: none;
+    font-size: 25px;
 }
 
 h3 {
@@ -141,6 +142,10 @@ h3 {
     color: #000;
 }
 
+#wiki-error {
+    margin-left: 3%;
+}
+
 img, iframe {
     width: 100%;
     height: 100%;
@@ -149,6 +154,69 @@ img, iframe {
     margin-right: 1%;
 }
 
+a {
+    margin: 10px;
+    text-decoration: none;
+    color: #000;
+}
+
+#wiki-data {
+    font-size: 17px;
+    padding-top: 0px;
+    padding-bottom: 30px; 
+    
+}
+
+#wiki-data p {
+    padding: 15px;
+}
+
+#wiki-data a {
+    font-size: 30px;
+    padding: 10px;
+}
+
+#wiki-data a:hover {
+    color: blue;
+    font-size: 40px;
+}
+
+footer {
+    position: absolute;
+    color: #ffffff;
+    bottom: 0;
+}
+
+footer a {
+    color: #ffffff;
+}
+ 
 .hidden {
     display: none;
+}
+
+@media only screen and (max-width: 700px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    .search-input {
+        width: 150px;
+    }
+
+    #met-data {
+        padding: 0;
+    }
+
+    footer a {
+        font-size: 10px;
+    }
+    
+    #wiki-button {
+        margin-left: 0%;
+    }
+    
+    #wiki-data {
+        padding: 0;
+    }
 }
