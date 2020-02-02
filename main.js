@@ -240,7 +240,7 @@ function getWiki(query) {
     })
     .then(responseJson => displayWiki(responseJson))
     .catch(err => {
-        $('#error-message2').text('no search results available');
+        $('#error-message2').text('Sorry no results available');
     }); 
 }
 
