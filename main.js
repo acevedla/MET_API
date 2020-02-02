@@ -31,10 +31,12 @@ function checkValidForm(val) {
 function watchForm1() {
     $('#search-by-id').submit(function(event) {
         event.preventDefault();
+        $('.loading').removeClass('hidden');
         $('#submit-error').empty();
         const userInput = $('.search-input').val();
         if (checkValidForm(userInput)) {
             getMuseumItemById(userInput);
+            $('.search-input').val('');
         }
         else {
             $('#submit-error').append('Sorry that reference number is not valid');
@@ -197,10 +199,15 @@ function displayMuseumPiece(responseJson) {
             $('#wiki-data').empty();
             $('#wiki-error').empty();
     }
+    $('.loading').addClass('hidden');
+    $('html, body').animate({
+        scrollTop: $('.container2').prop("scrollHeight")
+    }, 1000);
 }
 
 function watchForm2() {
     $('#random-id').submit(function(event) {
+        $('.loading').removeClass('hidden');
         event.preventDefault();
         getMuseumID();
     });
